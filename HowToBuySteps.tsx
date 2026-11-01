@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Smartphone, MessageCircle, Store, CheckCircle2, Users } from 'lucide-react';
-import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from '../data/storeData';
+import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from './storeData';
 
 const stepIcons = [
   Smartphone,
