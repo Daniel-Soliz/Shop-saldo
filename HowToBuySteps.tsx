@@ -30,11 +30,11 @@ export const HowToBuySteps: React.FC = () => {
         </p>
       </motion.div>
 
-      <div className="relative pl-6 sm:pl-8">
+      <div className="shop-step-container relative pl-6 sm:pl-8">
         {/* Linha vertical que conecta os passos */}
-        <div className="absolute left-3 sm:left-4 top-4 bottom-8 w-0.5 bg-gradient-to-b from-[#FF6A00] via-[#FF9A3D] to-white/20" />
+        <div className="shop-step-track absolute left-3 sm:left-4 top-4 bottom-8 w-0.5 bg-gradient-to-b from-[#FF6A00] via-[#FF9A3D] to-white/20" />
 
-        <div className="flex flex-col gap-6">
+        <div className="shop-step-list flex flex-col gap-6">
           {STORE_DATA.steps.map((step, idx) => {
             const Icon = stepIcons[idx] || CheckCircle2;
 
@@ -45,15 +45,15 @@ export const HowToBuySteps: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.12 }}
-                className="relative flex items-start gap-3.5 group"
+                className="shop-step-item relative flex items-start gap-3.5 group"
               >
                 {/* Marcador Numerado no Trilho */}
-                <div className="absolute -left-6 sm:-left-8 top-0 w-6.5 h-6.5 rounded-full bg-[#0B0B0C] border-2 border-[#FF6A00] text-[#FF6A00] flex items-center justify-center text-xs font-black shrink-0 shadow-[0_0_12px_rgba(255,106,0,0.4)] group-hover:bg-[#FF6A00] group-hover:text-white transition-colors">
+                <div className="shop-step-marker absolute -left-6 sm:-left-8 top-0 w-6.5 h-6.5 rounded-full bg-[#0B0B0C] border-2 border-[#FF6A00] text-[#FF6A00] flex items-center justify-center text-xs font-black shrink-0 shadow-[0_0_12px_rgba(255,106,0,0.4)] group-hover:bg-[#FF6A00] group-hover:text-white transition-colors">
                   {step.step}
                 </div>
 
                 {/* Cartão de Conteúdo */}
-                <div className="flex-1 p-4 rounded-[22px] bg-[#17171A] border border-white/10 group-hover:border-[#FF6A00]/40 transition-colors shadow-sm">
+                <div className="shop-step-card flex-1 p-4 rounded-[22px] bg-[#17171A] border border-white/10 group-hover:border-[#FF6A00]/40 transition-colors shadow-sm">
                   <div className="flex items-center gap-2 mb-1.5">
                     <Icon className="w-4 h-4 text-[#FF6A00]" />
                     <h3 className="font-extrabold text-sm sm:text-base text-white">
