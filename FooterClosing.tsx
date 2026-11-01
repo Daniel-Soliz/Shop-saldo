@@ -18,7 +18,7 @@ export const FooterClosing: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-32 bg-[#FF6A00]/20 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center">
-          <div className="w-18 h-18 rounded-full overflow-hidden border-2 border-[#FF6A00] shadow-[0_0_20px_rgba(255,106,0,0.4)] mb-3 bg-[#FF6A00]/10">
+          <div className="relative w-18 h-18 rounded-full overflow-hidden border-2 border-[#FF6A00] shadow-[0_0_20px_rgba(255,106,0,0.4)] mb-3 bg-[#FF6A00]/10">
             <span className="absolute w-16 h-16 flex items-center justify-center text-[#FF6A00] text-3xl font-black">S.</span>
             <img
               src={STORE_DATA.mascotImage}
