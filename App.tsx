@@ -4,18 +4,18 @@
  */
 
 import React, { useState } from 'react';
-import { ScrollProgressBar } from './components/ScrollProgressBar';
-import { HeaderHero } from './components/HeaderHero';
-import { MainActionButtons } from './components/MainActionButtons';
-import { MarqueeBanners } from './components/MarqueeBanners';
-import { CategoryGrid } from './components/CategoryGrid';
-import { WhyShopSaldo } from './components/WhyShopSaldo';
-import { HowToBuySteps } from './components/HowToBuySteps';
-import { LocationSection } from './components/LocationSection';
-import { FooterClosing } from './components/FooterClosing';
-import { FloatingWhatsApp } from './components/FloatingWhatsApp';
-import { AiAssistantSheet } from './components/AiAssistantSheet';
-import { ShareToast, sharePage } from './components/ShareToast';
+import { ScrollProgressBar } from './ScrollProgressBar';
+import { HeaderHero } from './HeaderHero';
+import { MainActionButtons } from './MainActionButtons';
+import { MarqueeBanners } from './MarqueeBanners';
+import { CategoryGrid } from './CategoryGrid';
+import { WhyShopSaldo } from './WhyShopSaldo';
+import { HowToBuySteps } from './HowToBuySteps';
+import { LocationSection } from './LocationSection';
+import { FooterClosing } from './FooterClosing';
+import { FloatingWhatsApp } from './FloatingWhatsApp';
+import { AiAssistantSheet } from './AiAssistantSheet';
+import { ShareToast, sharePage } from './ShareToast';
 
 export default function App() {
   const [isAiOpen, setIsAiOpen] = useState(false);
