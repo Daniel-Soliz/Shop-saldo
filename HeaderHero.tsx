@@ -14,7 +14,7 @@ export const HeaderHero: React.FC = () => {
   return (
     <motion.header
       style={{ opacity: heroOpacity, scale: heroScale, y: heroY }}
-      className="relative pt-8 pb-6 px-4 flex flex-col items-center text-center overflow-hidden"
+      className="shop-hero-header relative pt-8 pb-6 px-4 flex flex-col items-center text-center overflow-hidden"
     >
       {/* Glow laranja radial pulsante de fundo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-radial-orange-intense blur-2xl opacity-60 pointer-events-none animate-pulse" />
@@ -35,11 +35,16 @@ export const HeaderHero: React.FC = () => {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-              className="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/20 shadow-inner bg-gradient-to-b from-[#FF6A00]/20 to-black"
+              className="shop-hero-mascot relative w-32 h-32 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-white/20 shadow-inner bg-gradient-to-b from-[#FF6A00]/20 to-black"
             >
+              {/* Identidade visual de reserva caso a imagem original não esteja hospedada */}
+              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#291407] to-[#0B0B0C]">
+                <span className="text-7xl font-black tracking-tighter text-white">S<span className="text-[#FF6A00]">.</span></span>
+              </div>
               {/* Imagem do mascote centralizada na personagem */}
               <img
                 src={STORE_DATA.mascotImage}
+                onError={(event) => { event.currentTarget.style.display = "none"; }}
                 alt="Mascote Shop Saldo - Loja de Oportunidades"
                 className="w-full h-full object-cover object-[78%_42%] select-none pointer-events-none transition-transform duration-500 hover:scale-110"
                 loading="eager"
