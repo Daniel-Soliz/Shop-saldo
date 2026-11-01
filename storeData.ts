@@ -37,7 +37,7 @@ export const STORE_DATA = {
   googleMapsEmbedUrl: "https://maps.google.com/maps?q=Av.+Dep.+Cant%C3%ADdio+Sampaio,+5985+-+Taipas,+S%C3%A3o+Paulo+-+SP&t=&z=16&ie=UTF8&iwloc=&output=embed",
 
   // Imagens da Marca
-  mascotImage: "/assets/aistudio/file_0000000042e0820e9e634ab38048a2b5_7dd3d2cc.png",
+  mascotImage: "/Shop-saldo/assets/shop-saldo-mascote.webp",
   storeBgImage: "/assets/aistudio/file_0000000024ac820e800e87a264a4182d_2a52e5d1.png",
 
   // 6 Categorias Rápidas (Grade 2x3)
