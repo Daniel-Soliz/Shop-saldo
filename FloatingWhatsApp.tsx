@@ -40,7 +40,7 @@ export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ onOpenAiChat
             aria-label="Abrir assistente virtual da Shop Saldo"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#FF6A00] animate-spin-slow" />
-            <span>Dúvidas? Pergunte à IA</span>
+            <span>Dúvidas? Ajuda rápida</span>
           </motion.button>
 
           <div className="flex items-center gap-2">
