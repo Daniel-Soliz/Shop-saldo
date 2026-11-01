@@ -19,8 +19,10 @@ export const FooterClosing: React.FC = () => {
 
         <div className="relative z-10 flex flex-col items-center">
           <div className="w-18 h-18 rounded-full overflow-hidden border-2 border-[#FF6A00] shadow-[0_0_20px_rgba(255,106,0,0.4)] mb-3 bg-[#FF6A00]/10">
+            <span className="absolute w-16 h-16 flex items-center justify-center text-[#FF6A00] text-3xl font-black">S.</span>
             <img
               src={STORE_DATA.mascotImage}
+              onError={(event) => { event.currentTarget.style.display = "none"; }}
               alt="Mascote Shop Saldo"
               className="w-full h-full object-cover object-[78%_42%]"
             />
@@ -33,7 +35,7 @@ export const FooterClosing: React.FC = () => {
             Nossos lotes esgotam rápido. Entre no grupo oficial do WhatsApp ou acompanhe os stories no Instagram.
           </p>
 
-          <div className="w-full flex flex-col gap-2.5 mt-5">
+          <div className="shop-footer-actions w-full flex flex-col gap-2.5 mt-5">
             <button
               onClick={openWhatsAppGroup}
               className="cursor-pointer w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#FF6A00] to-[#E24E00] hover:brightness-105 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(255,106,0,0.35)] active:scale-98 transition-all"
