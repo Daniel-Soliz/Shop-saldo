@@ -21,6 +21,28 @@ const QUICK_PROMPTS = [
   "Como faço para falar com uma atendente?",
 ];
 
+// GitHub Pages hospeda apenas arquivos estáticos: respostas informativas continuam
+// disponíveis sem expor chaves ou depender de um servidor de IA.
+function getLocalStoreReply(question: string): string {
+  const text = question.toLocaleLowerCase('pt-BR').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  if (/horario|funcionamento|abre|fecha|domingo|feriado/.test(text)) {
+    return `Nosso horário é ${STORE_DATA.openingHours}. ${STORE_DATA.openingHoursNote}.`;
+  }
+  if (/endereco|onde|localiza|chegar|rota|bairro/.test(text)) {
+    return `Estamos em ${STORE_DATA.fullAddress}. Você pode usar o botão de rotas do site para abrir o Google Maps.`;
+  }
+  if (/instagram|insta|rede social/.test(text)) {
+    return `Nosso Instagram é ${STORE_DATA.instagramHandle}. Acompanhe por lá as novidades da Shop Saldo!`;
+  }
+  if (/contato|whatsapp|atendente|telefone|falar|numero|zap/.test(text)) {
+    return `Fale com nossa equipe pelo WhatsApp ${STORE_DATA.phoneFormatted}. Use o botão abaixo para iniciar uma conversa.`;
+  }
+  if (/produto|vende|categoria|roupa|bolsa|ferrament|preco|valor|estoque|disponivel|entrega|comprar/.test(text)) {
+    return `Trabalhamos com moda, bolsas, ferramentas, eletro, utilidades, casa e beleza. Como os lotes mudam, a equipe confirma fotos, preços e disponibilidade pelo WhatsApp ${STORE_DATA.phoneFormatted}.`;
+  }
+  return `Posso ajudar com endereço, horário, categorias de produtos e contato da Shop Saldo. Para outras dúvidas, fale com nossa equipe pelo WhatsApp ${STORE_DATA.phoneFormatted}.`;
+}
+
 export const AiAssistantSheet: React.FC<AiAssistantSheetProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -60,14 +82,23 @@ export const AiAssistantSheet: React.FC<AiAssistantSheetProps> = ({ isOpen, onCl
     setIsLoading(true);
 
     try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query }),
-      });
-
-      const data = await res.json();
-      const replyText = data?.reply || "Olá! Como nosso estoque de achadinhos gira muito rápido, nossa equipe confirma no WhatsApp da loja: (11) 93088-2546. Clique abaixo para ver fotos e valores atualizados!";
+      // No GitHub Pages não há API /api/chat. Use as respostas locais da loja.
+      let replyText = getLocalStoreReply(query);
+      if (!window.location.hostname.endsWith('.github.io')) {
+        try {
+          const res = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: query }),
+          });
+          if (res.ok) {
+            const data = await res.json();
+            replyText = data?.reply || replyText;
+          }
+        } catch {
+          // Mantém respostas locais caso o servidor esteja indisponível.
+        }
+      }
 
       const assistantMsg: Message = {
         id: (Date.now() + 1).toString(),
@@ -124,10 +155,12 @@ export const AiAssistantSheet: React.FC<AiAssistantSheetProps> = ({ isOpen, onCl
             <div className="p-4 border-b border-white/10 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#FF6A00] p-0.5 bg-gradient-to-tr from-[#E24E00] to-[#FF6A00]">
+                  <span className="absolute inset-0 flex items-center justify-center text-white font-black text-lg">S.</span>
                   <img
                     src={STORE_DATA.mascotImage}
+                    onError={(event) => { event.currentTarget.style.display = "none"; }}
                     alt="Assistente Shop Saldo"
-                    className="w-full h-full object-cover object-[78%_42%] rounded-full"
+                    className="relative z-10 w-full h-full object-cover object-[78%_42%] rounded-full"
                   />
                 </div>
                 <div>
