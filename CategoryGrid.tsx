@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Shirt, ShoppingBag, Wrench, Zap, Home, Sparkles, ArrowUpRight } from 'lucide-react';
-import { STORE_DATA, openWhatsApp, ProductCategory } from '../data/storeData';
+import { STORE_DATA, openWhatsApp, ProductCategory } from './storeData';
 
 const categoryIconMap = {
   Shirt,
