@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MessageCircle, Instagram, Heart } from 'lucide-react';
-import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from '../data/storeData';
+import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from './storeData';
 
 export const FooterClosing: React.FC = () => {
   return (
