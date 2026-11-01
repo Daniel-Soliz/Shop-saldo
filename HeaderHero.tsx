@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { MapPin, Sparkles } from 'lucide-react';
-import { STORE_DATA } from '../data/storeData';
+import { STORE_DATA } from './storeData';
 
 export const HeaderHero: React.FC = () => {
   const { scrollY } = useScroll();
