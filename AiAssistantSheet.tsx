@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, Sparkles, MessageCircle, RefreshCw } from 'lucide-react';
-import { STORE_DATA, openWhatsApp } from '../data/storeData';
+import { STORE_DATA, openWhatsApp } from './storeData';
 
 interface Message {
   id: string;
