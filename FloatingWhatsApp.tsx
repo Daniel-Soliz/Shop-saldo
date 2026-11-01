@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, ArrowUp, Sparkles } from 'lucide-react';
-import { openWhatsAppGroup } from '../data/storeData';
+import { openWhatsAppGroup } from './storeData';
 
 interface FloatingWhatsAppProps {
   onOpenAiChat: () => void;
