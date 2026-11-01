@@ -1,9 +1,6 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState } from 'react';
+import { ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
+import { STORE_DATA, getWhatsAppUrl } from './storeData';
 import { ScrollProgressBar } from './ScrollProgressBar';
 import { HeaderHero } from './HeaderHero';
 import { MainActionButtons } from './MainActionButtons';
@@ -22,52 +19,104 @@ export default function App() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const handleShare = () => {
-    sharePage((msg) => {
-      setToastMessage(msg);
+    sharePage((message) => {
+      setToastMessage(message);
       setTimeout(() => setToastMessage(null), 3000);
     });
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0B0C] text-[#F7F4F0] flex justify-center relative overflow-x-hidden selection:bg-[#FF6A00] selection:text-white">
-      {/* Barra de progresso de rolagem no topo */}
+    <div className="shop-page min-h-screen bg-[#0B0B0C] text-[#F7F4F0] relative overflow-x-clip selection:bg-[#FF6A00] selection:text-white">
       <ScrollProgressBar />
+      <div className="shop-page-glow shop-page-glow-left" aria-hidden="true" />
+      <div className="shop-page-glow shop-page-glow-right" aria-hidden="true" />
 
-      {/* Brilhos ambientais laterais no desktop para atmosfera sofisticada */}
-      <div className="fixed top-1/4 -left-48 w-96 h-96 bg-[#FF6A00]/10 rounded-full blur-3xl pointer-events-none hidden md:block" />
-      <div className="fixed bottom-1/4 -right-48 w-96 h-96 bg-[#E24E00]/10 rounded-full blur-3xl pointer-events-none hidden md:block" />
+      <div className="shop-topbar-wrap">
+        <div className="shop-topbar">
+          <a href="#inicio" className="shop-brand" aria-label="Shop Saldo — voltar ao início">
+            <span className="shop-brand-mark">S<span>.</span></span>
+            <span className="shop-brand-name">
+              <strong>SHOP <span>SALDO</span></strong>
+              <small>TAIPAS • SÃO PAULO</small>
+            </span>
+          </a>
 
-      {/* Container principal mobile-first (máximo 480px centrado) */}
-      <main className="w-full max-w-[480px] min-h-screen flex flex-col relative z-10 shadow-[0_0_60px_rgba(0,0,0,0.8)] bg-[#0B0B0C]">
-        {/* 4.1 Topo (Hero compacto) */}
-        <HeaderHero />
+          <nav className="shop-desktop-nav" aria-label="Navegação principal">
+            <a href="#categorias">Departamentos</a>
+            <a href="#vantagens">Por que escolher</a>
+            <a href="#como-comprar">Como comprar</a>
+            <a href="#localizacao">Onde estamos</a>
+          </nav>
 
-        {/* 4.2 Botões Principais */}
-        <MainActionButtons onShareClick={handleShare} />
+          <a
+            className="shop-top-cta"
+            href={getWhatsAppUrl('Olá! Vim pelo site da Shop Saldo e gostaria de falar com a loja.')}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={18} aria-hidden="true" />
+            <span>Falar com a loja</span>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
 
-        {/* 4.3 Faixas Marquee */}
-        <MarqueeBanners />
+      <main id="inicio" className="shop-main">
+        <section className="shop-intro" aria-label="Apresentação da Shop Saldo">
+          <div className="shop-hero-panel">
+            <div className="shop-hero-eyebrow">
+              <span className="shop-eyebrow-dot" aria-hidden="true" />
+              SUA LOJA DE OPORTUNIDADES EM TAIPAS
+            </div>
+            <HeaderHero />
+            <p className="shop-hero-description">
+              Moda, bolsas, ferramentas, utilidades e novidades para você descobrir.
+              Compre com a equipe pelo WhatsApp ou venha visitar a nossa loja.
+            </p>
+            <div className="shop-hero-tags">
+              <span><MapPin size={15} aria-hidden="true" /> {STORE_DATA.neighborhood}, São Paulo</span>
+              <span>Novidades toda semana</span>
+            </div>
+          </div>
 
-        {/* 4.4 Departamentos e Categorias (Grade 2x3) */}
-        <CategoryGrid />
+          <div className="shop-actions-panel">
+            <div className="shop-action-intro">
+              <span>COMECE POR AQUI</span>
+              <h2>Encontre sua próxima oportunidade</h2>
+              <p>Escolha como prefere descobrir os produtos e falar com a nossa equipe.</p>
+            </div>
+            <MainActionButtons onShareClick={handleShare} />
+          </div>
+        </section>
 
-        {/* 4.6 Por que a Shop Saldo (Seção Laranja com Métricas) */}
-        <WhyShopSaldo />
+        <div className="shop-marquee-area">
+          <MarqueeBanners />
+        </div>
 
-        {/* 4.7 Como Comprar em 3 Passos */}
-        <HowToBuySteps />
+        <div className="shop-section shop-categories">
+          <CategoryGrid />
+        </div>
 
-        {/* 4.8 Onde Estamos (Endereço, Horário e Mapa) */}
-        <LocationSection />
+        <div id="vantagens" className="shop-benefits">
+          <WhyShopSaldo />
+        </div>
 
-        {/* 4.9 Fechamento & Rodapé */}
-        <FooterClosing />
+        <div id="como-comprar" className="shop-section shop-steps">
+          <HowToBuySteps />
+        </div>
+
+        <div id="localizacao" className="shop-section shop-location">
+          <LocationSection />
+        </div>
+
+        <div className="shop-footer">
+          <FooterClosing />
+        </div>
       </main>
 
-      {/* 4.10 Elementos Globais */}
       <FloatingWhatsApp onOpenAiChat={() => setIsAiOpen(true)} />
       <AiAssistantSheet isOpen={isAiOpen} onClose={() => setIsAiOpen(false)} />
-      <ShareToast show={!!toastMessage} message={toastMessage || ''} />
+      <ShareToast show={Boolean(toastMessage)} message={toastMessage || ''} />
     </div>
   );
 }
