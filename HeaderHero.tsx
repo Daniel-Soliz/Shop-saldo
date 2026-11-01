@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { MapPin, Sparkles } from 'lucide-react';
+import shopLogo from './shop-saldo-logo.svg';
 import { STORE_DATA } from './storeData';
 
 export const HeaderHero: React.FC = () => {
@@ -43,10 +44,10 @@ export const HeaderHero: React.FC = () => {
               </div>
               {/* Imagem do mascote centralizada na personagem */}
               <img
-                src={STORE_DATA.mascotImage}
+                src={shopLogo}
                 onError={(event) => { event.currentTarget.style.display = "none"; }}
                 alt="Mascote Shop Saldo - Loja de Oportunidades"
-                className="w-full h-full object-cover object-[78%_42%] select-none pointer-events-none transition-transform duration-500 hover:scale-110"
+                className="w-full h-full object-contain object-center select-none pointer-events-none transition-transform duration-500 hover:scale-110"
                 loading="eager"
               />
               <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/10" />
