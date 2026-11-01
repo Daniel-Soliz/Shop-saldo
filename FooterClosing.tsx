@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MessageCircle, Instagram, Heart } from 'lucide-react';
-import shopLogo from './shop-saldo-logo.svg';
+import shopLogo from './assets/shop-saldo-mascote.webp';
 import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from './storeData';
 
 export const FooterClosing: React.FC = () => {
@@ -19,13 +19,13 @@ export const FooterClosing: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-32 bg-[#FF6A00]/20 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center">
-          <div className="relative w-18 h-18 rounded-full overflow-hidden border-2 border-[#FF6A00] shadow-[0_0_20px_rgba(255,106,0,0.4)] mb-3 bg-[#FF6A00]/10">
+          <div className="shop-footer-logo mb-3 relative flex w-full max-w-[220px] items-center justify-center">
             <span className="absolute w-16 h-16 flex items-center justify-center text-[#FF6A00] text-3xl font-black">S.</span>
             <img
               src={shopLogo}
               onError={(event) => { event.currentTarget.style.display = "none"; }}
               alt="Mascote Shop Saldo"
-              className="w-full h-full object-contain object-center"
+              className="h-auto w-full object-contain"
             />
           </div>
 
