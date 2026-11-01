@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, Sparkles, MessageCircle, RefreshCw } from 'lucide-react';
+import shopLogo from './shop-saldo-logo.svg';
 import { STORE_DATA, openWhatsApp } from './storeData';
 
 interface Message {
@@ -157,10 +158,10 @@ export const AiAssistantSheet: React.FC<AiAssistantSheetProps> = ({ isOpen, onCl
                 <div className="relative w-10 h-10 rounded-full overflow-hidden border border-[#FF6A00] p-0.5 bg-gradient-to-tr from-[#E24E00] to-[#FF6A00]">
                   <span className="absolute inset-0 flex items-center justify-center text-white font-black text-lg">S.</span>
                   <img
-                    src={STORE_DATA.mascotImage}
+                    src={shopLogo}
                     onError={(event) => { event.currentTarget.style.display = "none"; }}
                     alt="Assistente Shop Saldo"
-                    className="relative z-10 w-full h-full object-cover object-[78%_42%] rounded-full"
+                    className="relative z-10 w-full h-full object-contain object-center rounded-full"
                   />
                 </div>
                 <div>
