@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Send, Sparkles, MessageCircle, RefreshCw } from 'lucide-react';
-import shopLogo from './shop-saldo-logo.svg';
+import shopLogo from './assets/shop-saldo-mascote.webp';
 import { STORE_DATA, openWhatsApp } from './storeData';
 
 interface Message {
