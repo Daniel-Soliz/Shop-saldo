@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MessageCircle, Instagram, Heart } from 'lucide-react';
+import shopLogo from './shop-saldo-logo.svg';
 import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from './storeData';
 
 export const FooterClosing: React.FC = () => {
@@ -21,10 +22,10 @@ export const FooterClosing: React.FC = () => {
           <div className="relative w-18 h-18 rounded-full overflow-hidden border-2 border-[#FF6A00] shadow-[0_0_20px_rgba(255,106,0,0.4)] mb-3 bg-[#FF6A00]/10">
             <span className="absolute w-16 h-16 flex items-center justify-center text-[#FF6A00] text-3xl font-black">S.</span>
             <img
-              src={STORE_DATA.mascotImage}
+              src={shopLogo}
               onError={(event) => { event.currentTarget.style.display = "none"; }}
               alt="Mascote Shop Saldo"
-              className="w-full h-full object-cover object-[78%_42%]"
+              className="w-full h-full object-contain object-center"
             />
           </div>
 
