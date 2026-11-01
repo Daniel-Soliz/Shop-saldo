@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Clock, Navigation, Copy, Check } from 'lucide-react';
-import { STORE_DATA } from '../data/storeData';
+import { STORE_DATA } from './storeData';
 
 export const LocationSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
