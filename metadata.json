@@ -1,0 +1,6 @@
+{
+  "name": "Shop Saldo – Taipas",
+  "description": "Página oficial Link na Bio da Shop Saldo Taipas. Encontre ofertas exclusivas, novidades da semana e atendimento rápido no WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
