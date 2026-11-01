@@ -340,6 +340,9 @@
 .shop-section h2 { line-height: 1.17; }
 .shop-categories .shop-category-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
 .shop-categories .shop-category-grid > button { min-width: 0; }
+.shop-category-cta { display: inline-flex; align-items: center; gap: 5px; margin-top: 13px; color: #ffad64; font-size: 11px; font-weight: 800; letter-spacing: .01em; }
+.shop-category-cta svg { transition: transform .2s ease; }
+.shop-category-grid > button:hover .shop-category-cta svg { transform: translate(2px,-2px); }
 .shop-benefits section > div:nth-child(2) { padding: clamp(28px,4vw,68px) clamp(16px,3vw,60px); }
 .shop-benefits .shop-benefits-inner { max-width: none; margin: 0 auto; }
 .shop-footer > footer { padding: 35px clamp(16px,3vw,60px) 55px; }
@@ -388,6 +391,8 @@
   .shop-actions-panel .shop-buttons { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
   .shop-categories .shop-category-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
   .shop-categories .shop-category-grid > button { min-height: 172px; padding: 23px; }
+  .shop-categories .shop-category-grid > button h3 { font-size: clamp(16px,1.3vw,20px); }
+  .shop-categories .shop-category-grid > button p { font-size: 13px; line-height: 1.5; }
   .shop-section h2 { font-size: clamp(28px,2.6vw,42px); }
   .shop-benefits .shop-benefits-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
   .shop-benefits .shop-benefits-grid > div { min-width: 0; flex-direction: column; align-items: flex-start; padding: 25px; }
@@ -420,7 +425,7 @@
   .shop-hero-panel { min-height: 570px; }
   .shop-hero-eyebrow { display: flex; }
   .shop-hero-description { display: block; }
-  .shop-hero-tags { display: flex; }
+  .shop-hero-description { padding-bottom: 35px; }
   .shop-hero-panel .shop-hero-header { padding: 20px 30px; }
   .shop-hero-panel .shop-hero-header h1 { font-size: clamp(3rem,4.1vw,5.1rem); }
   .shop-hero-panel .shop-hero-mascot { width: 180px; height: 180px; }

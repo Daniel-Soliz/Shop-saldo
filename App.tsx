@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
-import { STORE_DATA, getWhatsAppUrl } from './storeData';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { getWhatsAppUrl } from './storeData';
 import shopLogo from './assets/shop-saldo-mascote.webp';
 import { ScrollProgressBar } from './ScrollProgressBar';
 import { HeaderHero } from './HeaderHero';
@@ -74,10 +74,6 @@ export default function App() {
               Moda, bolsas, ferramentas, utilidades e novidades para você descobrir.
               Compre com a equipe pelo WhatsApp ou venha visitar a nossa loja.
             </p>
-            <div className="shop-hero-tags">
-              <span><MapPin size={15} aria-hidden="true" /> {STORE_DATA.neighborhood}, São Paulo</span>
-              <span>Novidades toda semana</span>
-            </div>
           </div>
 
           <div className="shop-actions-panel">
