@@ -445,3 +445,123 @@
   .shop-brand-name small { display: none; }
   .shop-top-cta { padding: 10px 12px; font-size: 11px; }
 }
+
+
+/* Logo ORIGINAL enviado pelo cliente: flutuação e brilho responsivos. */
+.shop-logo-stage {
+  isolation: isolate;
+  width: 100%;
+  max-width: 640px;
+  min-height: clamp(190px, 25vw, 325px);
+  margin-inline: auto;
+}
+.shop-original-logo {
+  display: block;
+  position: relative;
+  z-index: 3;
+  width: min(96%, 590px);
+  height: auto;
+  object-fit: contain;
+  transform-origin: center 55%;
+  filter: drop-shadow(0 13px 28px rgba(0, 0, 0, .6))
+          drop-shadow(0 0 18px rgba(255, 106, 0, .12));
+  animation: shop-logo-float 6s ease-in-out infinite;
+  transition: filter .35s ease, scale .35s ease;
+  will-change: transform;
+}
+.shop-original-logo:hover {
+  scale: 1.045;
+  filter: drop-shadow(0 22px 35px rgba(0, 0, 0, .62))
+          drop-shadow(0 0 30px rgba(255, 106, 0, .4));
+}
+.shop-logo-orbit,
+.shop-logo-orbit-secondary {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.shop-logo-orbit {
+  width: min(50%, 290px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,106,0,.20) 0%, rgba(255,106,0,.07) 55%, transparent 72%);
+  border: 1px solid rgba(255, 106, 0, .30);
+  box-shadow: 0 0 65px rgba(255,106,0,.16), inset 0 0 35px rgba(255,106,0,.08);
+  animation: shop-logo-ring-glow 5s ease-in-out infinite;
+}
+.shop-logo-orbit-secondary {
+  width: min(64%, 350px);
+  border: 1px dashed rgba(255, 154, 61, .23);
+  animation: shop-logo-ring-spin 22s linear infinite;
+}
+.shop-logo-sparkle {
+  position: absolute;
+  z-index: 2;
+  font-size: 22px;
+  line-height: 1;
+  color: #ff9436;
+  text-shadow: 0 0 15px rgba(255,106,0,.7);
+  pointer-events: none;
+  animation: shop-logo-sparkle 3.3s ease-in-out infinite;
+}
+.shop-logo-sparkle-one { top: 20%; right: 10%; }
+.shop-logo-sparkle-two { bottom: 12%; left: 10%; font-size: 14px; animation-delay: -1.65s; }
+.shop-brand-original {
+  overflow: hidden;
+  padding: 1px;
+  background: linear-gradient(145deg, #17171a, #0b0b0c);
+}
+.shop-brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 23%;
+  display: block;
+  transition: transform .3s ease;
+}
+.shop-brand:hover .shop-brand-logo-img { transform: scale(1.12); }
+.shop-footer-logo img {
+  animation: shop-logo-float 6.5s ease-in-out infinite;
+  filter: drop-shadow(0 5px 15px rgba(255,106,0,.20));
+}
+@keyframes shop-logo-float {
+  0%,100% { transform: translate3d(0, 0, 0) rotate(-.65deg); }
+  50% { transform: translate3d(0, -11px, 0) rotate(.65deg); }
+}
+@keyframes shop-logo-ring-glow {
+  0%,100% { opacity: .5; scale: .98; }
+  50% { opacity: 1; scale: 1.07; }
+}
+@keyframes shop-logo-ring-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes shop-logo-sparkle {
+  0%,100% { opacity: .25; scale: .8; }
+  50% { opacity: 1; scale: 1.14; }
+}
+@media (max-width: 767px) {
+  .shop-logo-stage { min-height: 186px; }
+  .shop-original-logo { width: min(100%, 450px); }
+  .shop-logo-orbit { width: min(50%, 180px); }
+  .shop-logo-orbit-secondary { width: min(65%, 230px); }
+  .shop-logo-sparkle-one { right: 4%; }
+  .shop-logo-sparkle-two { left: 4%; }
+}
+@media (min-width: 1700px) {
+  .shop-original-logo { width: min(98%, 630px); }
+  .shop-logo-stage { min-height: 340px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shop-original-logo,
+  .shop-footer-logo img,
+  .shop-logo-orbit,
+  .shop-logo-orbit-secondary,
+  .shop-logo-sparkle {
+    animation: none !important;
+    will-change: auto;
+  }
+}
