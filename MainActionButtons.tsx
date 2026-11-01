@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MessageCircle, Users, ShoppingBag, Instagram, Navigation, Share2, ArrowRight, Phone } from 'lucide-react';
-import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from '../data/storeData';
+import { STORE_DATA, openWhatsApp, openWhatsAppGroup } from './storeData';
 
 interface MainActionButtonsProps {
   onShareClick: () => void;
