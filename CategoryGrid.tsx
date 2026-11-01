@@ -39,7 +39,7 @@ export const CategoryGrid: React.FC = () => {
       </motion.div>
 
       {/* Grade 2x3 */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="shop-category-grid grid grid-cols-2 gap-3">
         {STORE_DATA.categories.map((cat, index) => {
           const IconComponent = categoryIconMap[cat.icon] || Sparkles;
 
