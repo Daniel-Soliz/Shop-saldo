@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { TrendingDown, Sparkles, Zap, ShieldCheck } from 'lucide-react';
-import { STORE_DATA } from '../data/storeData';
+import { STORE_DATA } from './storeData';
 
 export const WhyShopSaldo: React.FC = () => {
   return (
