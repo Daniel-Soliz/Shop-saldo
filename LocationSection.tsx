@@ -37,9 +37,9 @@ export const LocationSection: React.FC = () => {
       </motion.div>
 
       {/* Cartão de Informações de Endereço & Horário */}
-      <div className="rounded-[26px] bg-[#17171A] border border-white/10 p-4 sm:p-5 shadow-xl flex flex-col gap-4">
+      <div className="shop-location-card rounded-[26px] bg-[#17171A] border border-white/10 p-4 sm:p-5 shadow-xl flex flex-col gap-4">
         {/* Endereço */}
-        <div className="flex items-start justify-between gap-3">
+        <div className="shop-location-address flex items-start justify-between gap-3">
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#FF6A00]/15 flex items-center justify-center text-[#FF6A00] shrink-0 mt-0.5">
               <MapPin className="w-5 h-5" />
@@ -71,7 +71,7 @@ export const LocationSection: React.FC = () => {
         </div>
 
         {/* Horário */}
-        <div className="flex items-start gap-3 pt-3 border-t border-white/5">
+        <div className="shop-location-hours flex items-start gap-3 pt-3 border-t border-white/5">
           <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#FF9A3D] shrink-0 mt-0.5">
             <Clock className="w-5 h-5" />
           </div>
@@ -89,7 +89,7 @@ export const LocationSection: React.FC = () => {
         </div>
 
         {/* Mapa Embutido do Google */}
-        <div className="w-full h-44 sm:h-48 rounded-[20px] overflow-hidden border border-white/10 bg-black/40 relative">
+        <div className="shop-location-map w-full h-44 sm:h-48 rounded-[20px] overflow-hidden border border-white/10 bg-black/40 relative">
           <iframe
             title="Localização da Shop Saldo Taipas"
             src={STORE_DATA.googleMapsEmbedUrl}
@@ -106,7 +106,7 @@ export const LocationSection: React.FC = () => {
         {/* Botão de Ação: Abrir Rota no Maps */}
         <button
           onClick={handleOpenRoute}
-          className="cursor-pointer w-full py-3.5 px-4 rounded-xl bg-white text-[#0B0B0C] hover:bg-gray-100 font-extrabold text-sm flex items-center justify-center gap-2 transition-transform active:scale-98 shadow-md"
+          className="shop-location-route cursor-pointer w-full py-3.5 px-4 rounded-xl bg-white text-[#0B0B0C] hover:bg-gray-100 font-extrabold text-sm flex items-center justify-center gap-2 transition-transform active:scale-98 shadow-md"
         >
           <Navigation className="w-4 h-4 text-[#FF6A00]" />
           <span>Traçar rota no Google Maps</span>
