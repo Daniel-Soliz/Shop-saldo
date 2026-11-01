@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
 import { STORE_DATA, getWhatsAppUrl } from './storeData';
+import shopLogo from './assets/shop-saldo-mascote.webp';
 import { ScrollProgressBar } from './ScrollProgressBar';
 import { HeaderHero } from './HeaderHero';
 import { MainActionButtons } from './MainActionButtons';
@@ -34,7 +35,7 @@ export default function App() {
       <div className="shop-topbar-wrap">
         <div className="shop-topbar">
           <a href="#inicio" className="shop-brand" aria-label="Shop Saldo — voltar ao início">
-            <span className="shop-brand-mark">S<span>.</span></span>
+            <span className="shop-brand-mark shop-brand-original"><img src={shopLogo} alt="" className="shop-brand-logo-img" width={72} height={36} /></span>
             <span className="shop-brand-name">
               <strong>SHOP <span>SALDO</span></strong>
               <small>TAIPAS • SÃO PAULO</small>
