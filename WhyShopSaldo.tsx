@@ -22,7 +22,7 @@ export const WhyShopSaldo: React.FC = () => {
 
       {/* Conteúdo com Fundo Laranja Vibrante */}
       <div className="bg-[#FF6A00] py-8 px-4">
-        <div className="max-w-[480px] mx-auto">
+        <div className="shop-benefits-inner max-w-[480px] mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export const WhyShopSaldo: React.FC = () => {
           </motion.div>
 
           {/* 3 Itens de Destaque com Métricas */}
-          <div className="flex flex-col gap-3.5">
+          <div className="shop-benefits-grid flex flex-col gap-3.5">
             {/* Item 1 */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -113,7 +113,7 @@ export const WhyShopSaldo: React.FC = () => {
                     Atendimento rápido no Zap
                   </h3>
                   <span className="text-xs font-black text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-full">
-                    &lt; 5 min
+                    Pelo WhatsApp
                   </span>
                 </div>
                 <p className="text-xs text-gray-600 mt-0.5 leading-snug">
