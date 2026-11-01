@@ -69,7 +69,7 @@ export const MainActionButtons: React.FC<MainActionButtonsProps> = ({ onShareCli
       initial="hidden"
       animate="show"
       aria-label="Links principais"
-      className="px-4 py-2 flex flex-col gap-3.5 w-full max-w-[480px] mx-auto z-10"
+      className="shop-buttons px-4 py-2 flex flex-col gap-3.5 w-full max-w-[480px] mx-auto z-10"
     >
       {/* 1. Entrar no Grupo do WhatsApp (Botão Laranja Sólido Maior com Pulso e Shine) */}
       <motion.button
